@@ -6,10 +6,10 @@ First a database schema is created, followed by an ETL pipeline.
 ## Repository Files
 
 There are 4 files in the package:
-create_tables.py
-sql_queries.py
-etl.ipynb
-etl.py
+- create_tables.py
+- sql_queries.py
+- etl.ipynb
+- etl.py
 
 ## Data
 
@@ -46,10 +46,10 @@ main()
 """
 
 ### sql_queries.py
-#This file contains SQL queries that defines and creates the database schema and tables, inserts records and finds songs
+This file contains SQL queries that defines and creates the database schema and tables, inserts records and finds songs
 
 ### etl.ipynb
-#This notebook develops the ETL process for each of the tables: songplay, users, songs, artists, time
+This notebook develops the ETL process for each of the tables: songplay, users, songs, artists, time
 
 ### etl.py
 
@@ -63,8 +63,4 @@ process_log_file(cur, filepath)
 """
 process_data(cur, conn, filepath, func)
 - get all files matching extension from directory
-
-
-Project Description
-In this project, you'll apply what you've learned on data modeling with Postgres and build an ETL pipeline using Python. To complete the project, you will need to define fact and dimension tables for a star schema for a particular analytic focus, and write an ETL pipeline that transfers data from files in two local directories into these tables in Postgres using Python and SQL.
 
