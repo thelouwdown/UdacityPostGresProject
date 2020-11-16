@@ -6,6 +6,9 @@ from sql_queries import *
 
 
 def process_song_file(cur, filepath):
+    '''
+    Processes song files and inserts song and artist records into the respective tables of the PostGres database.
+    '''
     # open song file
     df = pd.read_json(filepath, lines=True)
 
@@ -19,6 +22,9 @@ def process_song_file(cur, filepath):
 
 
 def process_log_file(cur, filepath):
+    '''
+    Processes the log datafile, filters by NextSong and then inserts the time, songplay and user records into the respective tables of the PostGres database.
+    '''
     # open log file
     df = pd.read_json(filepath, lines=True)
 
@@ -70,6 +76,9 @@ def process_log_file(cur, filepath):
 
 
 def process_data(cur, conn, filepath, func):
+    '''
+    Processes data from the songs and log files into the PostGres database.
+    '''
     # get all files matching extension from directory
     all_files = []
     for root, dirs, files in os.walk(filepath):
