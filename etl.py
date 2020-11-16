@@ -26,19 +26,19 @@ def process_log_file(cur, filepath):
     df = df[df.page == 'NextSong']
 
     # convert timestamp column to datetime
-    t = df[['ts']]
-    t.ts = pd.to_datetime(t.ts, unit = 'ms')
+    ts = pd.to_datetime(df['ts'], unit='ms')
     
     # insert time data records
     time_data ={
-    'start_time': t['ts'].values.tolist(), \
-    'hour': t['ts'].dt.hour.values.tolist() , \
-    'day': t['ts'].dt.day.values.tolist(),
-    'week_of_year': t['ts'].dt.week.values.tolist(),
-    'month': t['ts'].dt.month.values.tolist(),
-    'year': t['ts'].dt.year.values.tolist(),
-    'weekday': t['ts'].dt.weekday.values.tolist()
-           }
+    'start_time': ts.values.tolist(), \
+    'hour': ts.dt.hour.values.tolist() , \
+    'day': ts.dt.day.values.tolist(),
+    'week_of_year': ts.dt.week.values.tolist(),
+    'month': ts.dt.month.values.tolist(),
+    'year': ts.dt.year.values.tolist(),
+    'weekday': ts.dt.weekday.values.tolist()
+       }
+    
     column_labels = ('start_time','hour','day','week_of_year','month','year','weekday')
     time_df = pd.DataFrame(time_data,columns=column_labels)
 
